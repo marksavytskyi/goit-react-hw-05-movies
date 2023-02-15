@@ -6,7 +6,6 @@ import { List, Item, Author, Content } from './MovieReviews.styled';
 const MovieReviews = () => {
   const { id } = useParams();
   const [results, setResults] = useState([]);
-  const [_, setStatus] = useState(false);
 
   useEffect(() => {
     async function fetchMovieReviews() {
@@ -15,7 +14,6 @@ const MovieReviews = () => {
           data: { results },
         } = await getMovieReviews(id);
         setResults(results);
-        setStatus(true);
       } catch (error) {}
     }
 
