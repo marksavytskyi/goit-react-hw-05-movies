@@ -6,13 +6,13 @@ import { List, Item, Author, Content } from './MovieReviews.styled';
 const MovieReviews = () => {
   const { id } = useParams();
   const [results, setResults] = useState([]);
-  const [status, setStatus] = useState(false);
+  const [_, setStatus] = useState(false);
 
   useEffect(() => {
     async function fetchMovieReviews() {
       try {
         const {
-          data: { page, total_pages, results },
+          data: { results },
         } = await getMovieReviews(id);
         setResults(results);
         setStatus(true);
